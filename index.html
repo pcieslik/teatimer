@@ -8,11 +8,9 @@
 	<body>
 		<div class="container">
 			<h1>TeaTimer v 1.00 ;)</h1>
-			<hr>
-			<div id="timer">
-				<span data-bind="text: timer.remainingTimeFormatted"></span>
+			<div id="timer" class="jumbotron">
+				<h1 data-bind="text: timer.remainingTimeFormatted"></h1>
 			</div>
-			<hr>
 			<div class="row" data-bind='foreach: teas'>
 				<div class="col-md-4 col-sm-6">
 					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>

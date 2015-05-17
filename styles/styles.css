@@ -2,9 +2,8 @@ body{
 	font-family: Georgia, serif;
 }
 
-#timer{
+.jumbotron{
 	text-align: center;
-	font-size: 100px;
 	font-family: "Times New Roman", Times, serif;
 }
 
@@ -12,10 +11,11 @@ body{
 	margin: 15px 0px;
 	padding: 15px;
 	border: 1px solid #eee;
+	border-radius: 6px
 }
 
 .tea-tile:hover{
-	background-color: #f8f8f8;
+	background-color: #eee;
 }
 
 .tea-type{

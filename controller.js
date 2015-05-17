@@ -24,12 +24,7 @@ function Timer(){
 	self.remainingTimeFormatted = ko.computed(function() {
 		var minutes = Math.floor(this.remainingTime() / 60);
 		var seconds = (this.remainingTime() % 60);
-		
-		if(seconds < 10){
-			return minutes + ":0" + seconds + "s";
-		}
-		
-        return minutes + ":" + seconds + "s";
+        return minutes + " minut " + seconds + " sekund ";
     }, this);
 	
 	self.start = function(seconds){
@@ -42,7 +37,7 @@ function Timer(){
 		self.remainingTime(self.remainingTime() - 1);
 		if(self.remainingTime() < 1){
 			self.stop();
-			alert('gotowe!');
+			alert('Twoja herbata jest już gotowa!');
 		}
 	}
 	
