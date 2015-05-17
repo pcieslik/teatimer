@@ -1,12 +1,14 @@
 #timer{
 	font-size: 150px;
 	text-align: center;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .tea-tile{
 	margin: 15px 0px;
 	padding: 1em;
 	border: 1px solid #eee;
+	font-family: Georgia, serif;
 }
 
 .tea-tile:hover{
@@ -20,7 +22,10 @@
 }
 
 #black-tea-tile .glyphicon{ color: black; }
-#green-tea-tile .glyphicon{ color: green; }
-#pu-erh-tea-tile .glyphicon{ color: red; } 
-#matcha-tea-tile .glyphicon{ color: #70E02F; }
+#green-tea-tile .glyphicon{ color: darkgreen; }
+#matcha-tea-tile .glyphicon{ color: green; }
 #oolong-tea-tile .glyphicon{ color: brown; }
+#white-tea-tile .glyphicon{ color: #ddd; }
+#pu-erh-tea-tile .glyphicon{ color: darkred; } 
+#herbal-tea-tile .glyphicon{ color: darkgreen; }
+#rooibos-tea-tile .glyphicon{ color: darkred; }
