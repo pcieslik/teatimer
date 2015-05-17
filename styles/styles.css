@@ -2,11 +2,6 @@ body{
 	font-family: Georgia, serif;
 }
 
-.timer{
-	text-align: center;
-	font-family: "Times New Roman", Times, serif;
-}
-
 .tea-tile{
 	margin: 15px 0px;
 	padding: 15px;
@@ -18,10 +13,15 @@ body{
 	text-transform: capitalize;
 }
 
-#white-tea-tile .glyphicon{ color: lightgray; }
-#green-tea-tile .glyphicon{ color: darkgreen; }
-#oolong-tea-tile .glyphicon{ color: brown; }
-#black-tea-tile .glyphicon{ color: black; }
-#herbal-tea-tile .glyphicon{ color: olive; }
-#rooibos-tea-tile .glyphicon{ color: chocolate ; }
-#mate-tea-tile .glyphicon{ color: tomato ; }
+.tea-type .glyphicon{
+	margin-right: 10px;
+}
+
+
+.white-tea-type .glyphicon{ color: lightgray; }
+.green-tea-type .glyphicon{ color: darkgreen; }
+.oolong-tea-type .glyphicon{ color: brown; }
+.black-tea-type .glyphicon{ color: black; }
+.herbal-tea-type .glyphicon{ color: olive; }
+.rooibos-tea-type .glyphicon{ color: chocolate ; }
+.mate-tea-type .glyphicon{ color: tomato ; }

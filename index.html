@@ -12,12 +12,12 @@
 					<button class="close" data-bind="click: $parent.stopTimer"><span aria-hidden="true">&times;</span></button>
 					<div class="row">
 						<div class="col-sm-3">
-							<h1>
+							<h1 data-bind='attr: { class: teaType + "-tea-type tea-type"}'>
 								<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
 								<span class="tea-type" data-bind="text: teaType"></span>
 							</h1>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-6 text-center">
 							<h1 data-bind="text: remainingTimeFormatted"></h1>
 						</div>
 					</div>				
@@ -26,10 +26,10 @@
 
 			<div class="row" data-bind='foreach: teaTileControllers'>
 				<div class="col-md-4 col-sm-6">
-					<div class="tea-tile" data-bind='attr: { id: type + "-tea-tile"}'>
-						<h1 class="text-center">
+					<div class="tea-tile">
+						<h1 data-bind='attr: { class: type + "-tea-type tea-type"}'>
 							<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-							<span class="tea-type" data-bind="text: type"></span>
+							<span data-bind="text: type"></span>
 						</h1>
 						<hr>
 						<p data-bind="text: time"></p>
