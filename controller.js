@@ -6,6 +6,7 @@ function Controller(){
 		new Tea("black", 70, 90 ),
 		new Tea("white", 5, 90 ),
 		new Tea("green", 5, 90),
+		new Tea("pu-erh", 5, 90),
 	];
 	
 	self.runTimer = function(tea){
