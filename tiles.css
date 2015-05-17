@@ -1,0 +1,21 @@
+.tea-tile{
+	border: 1px solid black;
+	font-size: 50px;
+	text-align: center;
+	padding: 50px;
+}
+
+#black-tea-tile{
+	background-color: black;
+	color: white;
+}
+
+#green-tea-tile{
+	background-color: green;
+	color: white;
+}
+
+#white-tea-tile{
+	background-color: white;
+	color: black;
+}
