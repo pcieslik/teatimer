@@ -1,0 +1,26 @@
+#timer{
+	font-size: 150px;
+	text-align: center;
+}
+
+.tea-tile{
+	margin: 15px 0px;
+	padding: 1em;
+	border: 1px solid #eee;
+}
+
+.tea-tile:hover{
+	background-color: #f8f8f8;
+}
+
+.tea-type{
+	font-size: 60px;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+#black-tea-tile .glyphicon{ color: black; }
+#green-tea-tile .glyphicon{ color: green; }
+#pu-erh-tea-tile .glyphicon{ color: red; } 
+#matcha-tea-tile .glyphicon{ color: #70E02F; }
+#oolong-tea-tile .glyphicon{ color: brown; }

@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 		<script src="knockout-3.3.0.js"></script>
 		<script src="controller.js"></script>
 	</head>
@@ -14,9 +14,14 @@
 			<div class="row" data-bind='foreach: teas'>
 				<div class="col-md-4 col-sm-6">
 					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>
-						<p data-bind="text: type"></p>
-						<p data-bind="text: time + 's'"></p>
-						<p data-bind="text: temperature + '&deg;C'"></p>
+						
+						<p class="tea-type">
+							<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+							<span data-bind="text: type"></span>
+						</p>
+						<hr>
+						<p>Czas parzenia: <span data-bind="text: time"></span>min</p>
+						<p>Temperatura parzenia: <span data-bind="text: temperature"></span>&deg;C</p>
 					</div>
 				</div>
 			</div>
@@ -28,4 +33,3 @@
 
 	</body>
 </html>
-
