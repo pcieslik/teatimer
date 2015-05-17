@@ -3,17 +3,50 @@ function Controller(){
 	self.timer = new Timer();
 	
 	self.teas = [
-		new Tea("white", 5, 80),
-		new Tea("green", 1, 80),
-		new Tea("oolong", 3, 90),
-		new Tea("black", 4, 93),
-		new Tea("herbal", 6, 98),
-		new Tea("rooibos", 6, 98),
-		new Tea("mate", 6, 98)
+		new Tea("white", 5, 7, 80),
+		new Tea("green", 1, 3, 80),
+		new Tea("oolong", 3, 4, 90),
+		new Tea("black", 4, 4, 93),
+		new Tea("herbal", 6, 7, 98),
+		new Tea("rooibos", 5, 7, 98),
+		new Tea("mate", 6, 7, 98)
 	];
 	
-	self.runTimer = function(tea){
-		self.timer.start(tea.time * 60);
+	self.runTimer = function(minutes){
+		self.timer.start(minutes * 60);
+	};
+	
+	self.teaTileControllers = self.teas.map(function(tea){
+		return new TeaTileController(tea, self.runTimer)
+	});
+}
+
+function TeaTileController(tea, runTimer){
+
+	this.timeControllers = createTimeRange(tea.timeFrom, tea.timeTo).map(function(minutes){
+		return new TeaTileTimeController(minutes, runTimer);
+	});
+	
+	this.time = 'Czas parzenia: ' + tea.timeFrom + ' min - ' + tea.timeTo + ' min';
+	this.temperature = 'Temperatura parzenia: ' + tea.temperatureFrom + ' C - ' + tea.temperatureTo + ' C';
+	this.type = tea.type;
+	
+	function createTimeRange(timeFrom, timeTo){
+		var result = [];
+		var item = timeFrom;
+		while(item <= timeTo){
+			result.push(item);
+			item+=1;
+		}
+		
+		return result;
+	}
+}
+
+function TeaTileTimeController(minutes, runTimer){
+	this.minutes = minutes;
+	this.runTimer = function(){
+		runTimer(minutes);
 	};
 }
 
@@ -46,8 +79,10 @@ function Timer(){
 	}
 }
 
-function Tea(type, time, temperature){
+function Tea(type, timeFrom, timeTo, temperature){
 	this.type = type;
-	this.time = time;
-	this.temperature = temperature;
+	this.timeFrom = timeFrom;
+	this.timeTo = timeTo;
+	this.temperatureFrom = temperature;
+	this.temperatureTo = temperature;
 }

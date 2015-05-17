@@ -14,10 +14,6 @@ body{
 	border-radius: 6px
 }
 
-.tea-tile:hover{
-	background-color: #eee;
-}
-
 .tea-type{
 	text-transform: capitalize;
 }

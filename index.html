@@ -11,17 +11,20 @@
 			<div id="timer" class="jumbotron">
 				<h1 data-bind="text: timer.remainingTimeFormatted"></h1>
 			</div>
-			<div class="row" data-bind='foreach: teas'>
+			<div class="row" data-bind='foreach: teaTileControllers'>
 				<div class="col-md-4 col-sm-6">
-					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>
-						
+					<div class="tea-tile" data-bind='attr: { id: type + "-tea-tile"}'>
 						<h1 class="text-center">
 							<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
 							<span class="tea-type" data-bind="text: type"></span>
 						</h1>
 						<hr>
-						<p>Czas parzenia: <span data-bind="text: time"></span>min</p>
-						<p>Temperatura parzenia: <span data-bind="text: temperature"></span>&deg;C</p>
+						<p data-bind="text: time"></p>
+						<p data-bind="text: temperature"></p>
+						<hr>
+						<div data-bind='foreach: timeControllers'>
+							<button class="btn btn-default" data-bind="text: minutes + ' min', click: runTimer"></button>
+						</div>
 					</div>
 				</div>
 			</div>
