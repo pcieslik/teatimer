@@ -63,6 +63,7 @@ function TimerController(tea, minutes){
 	var seconds = minutes * 60;
 	
 	self.teaType = tea.type;
+	self.isRunning = ko.observable(false);
 	self.remainingTime = ko.observable(0);
 	self.remainingTimeFormatted = ko.computed(function() {
 		var minutes = Math.floor(this.remainingTime() / 60);
@@ -71,6 +72,7 @@ function TimerController(tea, minutes){
     }, this);
 	
 	self.start = function(){
+		self.isRunning(true);
 		self.remainingTime(seconds);
 		timerId = setInterval(self.action, 1000);
 	};
@@ -84,7 +86,8 @@ function TimerController(tea, minutes){
 	}
 	
 	self.stop = function(){
-		clearInterval(self.timerId);
+		self.isRunning(false);
+		clearInterval(timerId);
 	}
 }
 

@@ -8,7 +8,7 @@
 	<body>
 		<div class="container">
 			<div data-bind='foreach: timerControllers'>
-				<div class="timer alert alert-info" role="alert">
+				<div data-bind="attr: { class: isRunning() ? 'alert alert-info' : 'alert alert-success' }" role="alert">
 					<button class="close" data-bind="click: $parent.stopTimer"><span aria-hidden="true">&times;</span></button>
 					<div class="row">
 						<div class="col-sm-3">
