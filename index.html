@@ -7,9 +7,10 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div id="timer" data-bind='visible: showTimer'>
-				<h1 data-bind="text: timer.remainingTime"></h1>
+			<div>
+				<h1 data-bind="text: timer.remainingTimeFormatted"></h1>
 			</div>
+			
 			<div class="row" data-bind='foreach: teas'>
 				<div class="col-xs-4">
 					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>

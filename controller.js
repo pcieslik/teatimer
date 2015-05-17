@@ -3,28 +3,30 @@ function Controller(){
 	self.timer = new Timer();
 	
 	self.teas = [
-		new Tea("black", 5, 90 ),
+		new Tea("black", 70, 90 ),
 		new Tea("white", 5, 90 ),
 		new Tea("green", 5, 90),
-		new Tea("1", 5, 90),
-		new Tea("2", 5, 90),
-		new Tea("3", 5, 90),
 	];
 	
-	self.showTimer = ko.observable(false);
-	self.selectedTea = ko.observable({});
-	
 	self.runTimer = function(tea){
-		self.showTimer(true);
 		self.timer.start(tea.time);
-		self.selectedTea(tea);
 	};
 }
 
 function Timer(){
 	var self = this;
 	self.timerId = 0;
-	self.remainingTime = ko.observable();
+	self.remainingTime = ko.observable(0);
+	self.remainingTimeFormatted = ko.computed(function() {
+		var minutes = Math.floor(this.remainingTime() / 60);
+		var seconds = (this.remainingTime() % 60);
+		
+		if(seconds < 10){
+			return minutes + ":0" + seconds;
+		}
+		
+        return minutes + ":" + seconds;
+    }, this);
 	
 	self.start = function(seconds){
 		self.stop();
