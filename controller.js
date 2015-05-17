@@ -23,10 +23,10 @@ function Timer(){
 		var seconds = (this.remainingTime() % 60);
 		
 		if(seconds < 10){
-			return minutes + ":0" + seconds;
+			return minutes + ":0" + seconds + "s";
 		}
 		
-        return minutes + ":" + seconds;
+        return minutes + ":" + seconds + "s";
     }, this);
 	
 	self.start = function(seconds){
