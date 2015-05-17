@@ -7,10 +7,20 @@
 	</head>
 	<body>
 		<div class="container">
-			<div data-bind='foreach: timers'>
-				<div class="alert alert-info" role="alert">
+			<div data-bind='foreach: timerControllers'>
+				<div class="timer alert alert-info" role="alert">
 					<button class="close" data-bind="click: $parent.stopTimer"><span aria-hidden="true">&times;</span></button>
-					<span data-bind="text: remainingTimeFormatted"></span>
+					<div class="row">
+						<div class="col-sm-3">
+							<h1>
+								<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+								<span class="tea-type" data-bind="text: teaType"></span>
+							</h1>
+						</div>
+						<div class="col-sm-6">
+							<h1 data-bind="text: remainingTimeFormatted"></h1>
+						</div>
+					</div>				
 				</div>
 			</div>
 

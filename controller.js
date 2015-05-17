@@ -1,6 +1,6 @@
 function Controller(){
 	var self = this;
-	self.timers = ko.observableArray();
+	self.timerControllers = ko.observableArray();
 	
 	self.teas = [
 		new Tea("white", 5, 7, 80),
@@ -12,15 +12,15 @@ function Controller(){
 		new Tea("mate", 6, 7, 98)
 	];
 	
-	self.runTimer = function(minutes){
-		var timer = new Timer();
-		timer.start(minutes * 60);
-		self.timers.push(timer);
+	self.runTimer = function(tea, minutes){
+		var timer = new TimerController(tea, minutes);
+		timer.start();
+		self.timerControllers.push(timer);
 	};
 	
 	self.stopTimer = function(timer){
 		timer.stop();
-		self.timers.remove(timer);
+		self.timerControllers.remove(timer);
 	}
 	
 	self.teaTileControllers = self.teas.map(function(tea){
@@ -31,7 +31,7 @@ function Controller(){
 function TeaTileController(tea, runTimer){
 
 	this.timeControllers = createTimeRange(tea.timeFrom, tea.timeTo).map(function(minutes){
-		return new TeaTileTimeController(minutes, runTimer);
+		return new TeaTileTimeController(tea, minutes, runTimer);
 	});
 	
 	this.time = 'Czas parzenia: ' + tea.timeFrom + ' min - ' + tea.timeTo + ' min';
@@ -50,16 +50,19 @@ function TeaTileController(tea, runTimer){
 	}
 }
 
-function TeaTileTimeController(minutes, runTimer){
+function TeaTileTimeController(tea, minutes, runTimer){
 	this.minutes = minutes;
 	this.runTimer = function(){
-		runTimer(minutes);
+		runTimer(tea, minutes);
 	};
 }
 
-function Timer(){
+function TimerController(tea, minutes){
 	var self = this;
 	var timerId = 0;
+	var seconds = minutes * 60;
+	
+	self.teaType = tea.type;
 	self.remainingTime = ko.observable(0);
 	self.remainingTimeFormatted = ko.computed(function() {
 		var minutes = Math.floor(this.remainingTime() / 60);
@@ -67,8 +70,7 @@ function Timer(){
         return minutes + " minut " + seconds + " sekund ";
     }, this);
 	
-	self.start = function(seconds){
-		self.stop();
+	self.start = function(){
 		self.remainingTime(seconds);
 		timerId = setInterval(self.action, 1000);
 	};
