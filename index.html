@@ -2,27 +2,28 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="tiles.css">
+		<script src="knockout-3.3.0.js"></script>
+		<script src="controller.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div class="row">
+			<div id="timer" data-bind='visible: showTimer'>
+				<p data-bind="text: timer.remainingTime"></p>
+			</div>
+			<div class="row" data-bind='foreach: teas'>
 				<div class="col-xs-4">
-					<div class="tea-tile" id="black-tea-tile">
-						black
-					</div>
-				</div>
-				<div class="col-xs-4">
-					<div class="tea-tile" id="green-tea-tile">
-						green
-					</div>
-				</div>
-				<div class="col-xs-4">
-					<div class="tea-tile" id="white-tea-tile">
-						white
+					<div class="tea-tile" data-bind='click: $parent.runTimer'>
+						<p data-bind="text: type"></p>
+						<p data-bind="text: temperature"></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<script>
+			ko.applyBindings(new Controller());
+		</script>
+
 	</body>
 </html>
 
