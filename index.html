@@ -7,10 +7,13 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>TeaTimer v 1.00 ;)</h1>
-			<div id="timer" class="jumbotron">
-				<h1 data-bind="text: timer.remainingTimeFormatted"></h1>
+			<div data-bind='foreach: timers'>
+				<div class="alert alert-info" role="alert">
+					<button class="close" data-bind="click: $parent.stopTimer"><span aria-hidden="true">&times;</span></button>
+					<span data-bind="text: remainingTimeFormatted"></span>
+				</div>
 			</div>
+
 			<div class="row" data-bind='foreach: teaTileControllers'>
 				<div class="col-md-4 col-sm-6">
 					<div class="tea-tile" data-bind='attr: { id: type + "-tea-tile"}'>

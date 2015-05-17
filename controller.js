@@ -1,6 +1,6 @@
 function Controller(){
 	var self = this;
-	self.timer = new Timer();
+	self.timers = ko.observableArray();
 	
 	self.teas = [
 		new Tea("white", 5, 7, 80),
@@ -13,8 +13,15 @@ function Controller(){
 	];
 	
 	self.runTimer = function(minutes){
-		self.timer.start(minutes * 60);
+		var timer = new Timer();
+		timer.start(minutes * 60);
+		self.timers.push(timer);
 	};
+	
+	self.stopTimer = function(timer){
+		timer.stop();
+		self.timers.remove(timer);
+	}
 	
 	self.teaTileControllers = self.teas.map(function(tea){
 		return new TeaTileController(tea, self.runTimer)
@@ -52,7 +59,7 @@ function TeaTileTimeController(minutes, runTimer){
 
 function Timer(){
 	var self = this;
-	self.timerId = 0;
+	var timerId = 0;
 	self.remainingTime = ko.observable(0);
 	self.remainingTimeFormatted = ko.computed(function() {
 		var minutes = Math.floor(this.remainingTime() / 60);
@@ -63,7 +70,7 @@ function Timer(){
 	self.start = function(seconds){
 		self.stop();
 		self.remainingTime(seconds);
-		self.timerId = setInterval(self.action, 1000);
+		timerId = setInterval(self.action, 1000);
 	};
 	
 	self.action = function(){
