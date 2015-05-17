@@ -15,7 +15,8 @@
 				<div class="col-md-4 col-sm-6">
 					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>
 						<p data-bind="text: type"></p>
-						<p data-bind="text: temperature"></p>
+						<p data-bind="text: time + 's'"></p>
+						<p data-bind="text: temperature + '&deg;C'"></p>
 					</div>
 				</div>
 			</div>
