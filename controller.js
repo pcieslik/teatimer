@@ -3,12 +3,12 @@ function Controller(){
 	self.timer = new Timer();
 	
 	self.teas = [
-		new Tea("black", 120, 90 ),
-		new Tea("white", 120, 90 ),
-		new Tea("green", 120, 90),
-		new Tea("1", 120, 90),
-		new Tea("2", 120, 90),
-		new Tea("3", 120, 90),
+		new Tea("black", 5, 90 ),
+		new Tea("white", 5, 90 ),
+		new Tea("green", 5, 90),
+		new Tea("1", 5, 90),
+		new Tea("2", 5, 90),
+		new Tea("3", 5, 90),
 	];
 	
 	self.showTimer = ko.observable(false);
@@ -34,8 +34,9 @@ function Timer(){
 	
 	self.action = function(){
 		self.remainingTime(self.remainingTime() - 1);
-		if(self.remainingTime < 1){
+		if(self.remainingTime() < 1){
 			self.stop();
+			alert('gotowe!');
 		}
 	}
 	
