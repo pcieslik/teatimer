@@ -3,14 +3,13 @@ function Controller(){
 	self.timer = new Timer();
 	
 	self.teas = [
-		new Tea("black", 3, 93),
+		new Tea("white", 5, 80),
 		new Tea("green", 1, 80),
 		new Tea("oolong", 3, 90),
-		new Tea("matcha", 4, 90),
-		new Tea("white", 5, 80),
-		new Tea("pu-erh", 4, 98),
+		new Tea("black", 4, 93),
 		new Tea("herbal", 6, 98),
 		new Tea("rooibos", 6, 98),
+		new Tea("mate", 6, 98)
 	];
 	
 	self.runTimer = function(tea){
