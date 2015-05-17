@@ -1,14 +1,17 @@
+body{
+	font-family: Georgia, serif;
+}
+
 #timer{
-	font-size: 150px;
 	text-align: center;
+	font-size: 100px;
 	font-family: "Times New Roman", Times, serif;
 }
 
 .tea-tile{
 	margin: 15px 0px;
-	padding: 1em;
+	padding: 15px;
 	border: 1px solid #eee;
-	font-family: Georgia, serif;
 }
 
 .tea-tile:hover{
@@ -16,11 +19,7 @@
 }
 
 .tea-type{
-	font-size: 60px;
 	text-transform: capitalize;
-}
-.glyphicon{
-	font-size: 40px;
 }
 
 #white-tea-tile .glyphicon{ color: lightgray; }

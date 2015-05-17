@@ -7,18 +7,20 @@
 	</head>
 	<body>
 		<div class="container">
+			<h1>TeaTimer v 1.00 ;)</h1>
+			<hr>
 			<div id="timer">
 				<span data-bind="text: timer.remainingTimeFormatted"></span>
 			</div>
-			
+			<hr>
 			<div class="row" data-bind='foreach: teas'>
 				<div class="col-md-4 col-sm-6">
 					<div class="tea-tile" data-bind='click: $parent.runTimer, attr: { id: type + "-tea-tile"}'>
 						
-						<p class="text-center">
+						<h1 class="text-center">
 							<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
 							<span class="tea-type" data-bind="text: type"></span>
-						</p>
+						</h1>
 						<hr>
 						<p>Czas parzenia: <span data-bind="text: time"></span>min</p>
 						<p>Temperatura parzenia: <span data-bind="text: temperature"></span>&deg;C</p>
