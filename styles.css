@@ -1,13 +1,21 @@
+html, body{
+	font-size:100%;
+}
+
+body{
+	font-size:62.5%;
+}
+
 #timer{
-	font-size: 150px;
+	font-size: 10em;
 	text-align: center;
 }
 
 .tea-tile{
-	border: 1px solid black;
-	font-size: 50px;
+	font-size: 4em;
 	text-align: center;
-	padding: 50px;
+	margin: 15px 0px;
+	padding: 1em;
 }
 
 #black-tea-tile{
