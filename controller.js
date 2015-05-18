@@ -4,7 +4,7 @@ function Controller(){
 	
 	self.teas = [
 		new Tea("white", 5, 7, 80),
-		new Tea("green", 1, 3, 80),
+		new Tea("green", 0.1, 3, 80),
 		new Tea("oolong", 3, 4, 90),
 		new Tea("black", 4, 4, 93),
 		new Tea("herbal", 6, 7, 98),
@@ -61,7 +61,8 @@ function TimerController(tea, minutes){
 	var self = this;
 	var timerId = 0;
 	var seconds = minutes * 60;
-	
+	var audio = new Audio('alarm.ogg');
+
 	self.teaType = tea.type;
 	self.isRunning = ko.observable(false);
 	self.remainingTime = ko.observable(0);
@@ -81,12 +82,13 @@ function TimerController(tea, minutes){
 		self.remainingTime(self.remainingTime() - 1);
 		if(self.remainingTime() < 1){
 			self.stop();
-			alert('Twoja herbata jest już gotowa!');
+			audio.play();
 		}
 	}
 	
 	self.stop = function(){
 		self.isRunning(false);
+		audio.pause();
 		clearInterval(timerId);
 	}
 }
