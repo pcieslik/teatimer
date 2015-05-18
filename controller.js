@@ -3,13 +3,13 @@ function Controller(){
 	self.timerControllers = ko.observableArray();
 	
 	self.teas = [
-		new Tea("white", 5, 7, 80),
-		new Tea("green", 0.1, 3, 80),
-		new Tea("oolong", 3, 4, 90),
-		new Tea("black", 4, 4, 93),
-		new Tea("herbal", 6, 7, 98),
-		new Tea("rooibos", 5, 7, 98),
-		new Tea("mate", 6, 7, 98)
+		new Tea("white", 5, 7, 70, 80),
+		new Tea("green", 1, 3, 70, 80),
+		new Tea("oolong", 3, 4, 85, 90),
+		new Tea("black", 4, 4, 85, 93),
+		new Tea("herbal", 6, 7, 90, 98),
+		new Tea("rooibos", 5, 7, 90, 98),
+		new Tea("mate", 6, 7, 90, 98)
 	];
 	
 	self.runTimer = function(tea, minutes){
@@ -93,10 +93,10 @@ function TimerController(tea, minutes){
 	}
 }
 
-function Tea(type, timeFrom, timeTo, temperature){
+function Tea(type, timeFrom, timeTo, temperatureFrom, temperatureTo){
 	this.type = type;
 	this.timeFrom = timeFrom;
 	this.timeTo = timeTo;
-	this.temperatureFrom = temperature;
-	this.temperatureTo = temperature;
+	this.temperatureFrom = temperatureFrom;
+	this.temperatureTo = temperatureTo;
 }
